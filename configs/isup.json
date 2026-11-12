@@ -1,0 +1,26 @@
+{
+  "task": "isup",
+  "model": {
+    "input_size": [96, 224, 224],
+    "patch_size": [16, 16, 16],
+    "dim": 768,
+    "depth": 12,
+    "num_heads": 12,
+    "num_edges": 8,
+    "hypergraph_heads": 4,
+    "hypergraph_dropout": 0.1,
+    "classifier_hidden": 128,
+    "classifier_dropout": 0.5
+  },
+  "training": {
+    "batch_size": 8,
+    "lr": 0.00001,
+    "weight_decay": 0.01,
+    "epochs": 200,
+    "patience": 20,
+    "balanced_sampling": true,
+    "threshold": 0.5,
+    "num_workers": 4,
+    "seed": 42
+  }
+}

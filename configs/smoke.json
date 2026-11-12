@@ -1,0 +1,19 @@
+{
+  "model": {
+    "input_size": [16, 16, 16],
+    "patch_size": [8, 8, 8],
+    "dim": 16,
+    "depth": 2,
+    "num_heads": 4,
+    "num_edges": 3,
+    "hypergraph_heads": 4,
+    "hypergraph_dropout": 0.0,
+    "classifier_hidden": 8,
+    "classifier_dropout": 0.0
+  },
+  "training": {
+    "batch_size": 2,
+    "epochs": 1,
+    "num_workers": 0
+  }
+}

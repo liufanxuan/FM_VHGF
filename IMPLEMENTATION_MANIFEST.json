@@ -1,0 +1,135 @@
+{
+  "status": "Manuscript-aligned modified implementation; original clinical results not reproduced",
+  "repository": "https://github.com/liufanxuan/FM_VHGF",
+  "source_archive": "open_clip_main_code_20260728_051401.tar.gz",
+  "source_archive_sha256": "3849e65292b53bc6e6a2c8fb01d8fa570c67893e8654840eece727ff9e6b338e",
+  "validation": {
+    "unit_tests": 12,
+    "five_fold_end_to_end_tests": 1,
+    "tasks": [
+      "isup",
+      "epe"
+    ],
+    "full_default_forward": true,
+    "clinical_result_reproduction": false,
+    "real_biomedclip_weights_loaded": false
+  },
+  "encoder_parameters": {
+    "total": 104878080,
+    "trainable": 19860480
+  },
+  "whole_model_parameters": {
+    "total": 129799937,
+    "trainable": 44782337
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "61a60d174b70740cc661877084560c9e3a4be698a83f51c04377c2f39aeef248"
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "LICENSES/OpenCLIP_MIT.txt",
+      "sha256": "90bfc9b6f9d36d596f4cc28e086452d7e16abe9aeacf523b7f74f348bc1f1934"
+    },
+    {
+      "path": "README.md",
+      "sha256": "000a02d36a5ca949a28f0cd9bf39c7d5a9417526810b33d70fc041aba1b23afc"
+    },
+    {
+      "path": "UPSTREAM_NOTICES.md",
+      "sha256": "60701040343a507f75128ada3ab28bd21ebcd80b8b5c6224ae74bc8e268b35a4"
+    },
+    {
+      "path": "configs/epe.json",
+      "sha256": "daa904c04469af2a15e5f182110b54bd49e3ab20ec72d3104af4aa312705726b"
+    },
+    {
+      "path": "configs/isup.json",
+      "sha256": "61d523f1f7d7206a4fae1707b569ec01415be829f121ecc7b3152c1fa234087c"
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "14382298252f35000174dd74b991edf615695e8acc3702656040b6f538ad4e61"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_UPDATE_zh.md",
+      "sha256": "e92bac543b1da4a0651a4eca382a201531e61f898fc1d2aa815abb10c64ce4fe"
+    },
+    {
+      "path": "docs/MANUSCRIPT_ALIGNMENT.md",
+      "sha256": "417cb2805beed72ca425d6164f0fefa9636997d4e91999fdd37f9228624da1c2"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "c055a5ee1a68ce4873e9cf9906f6b499b8182a8a514cc469ae42bd47b566a987"
+    },
+    {
+      "path": "examples/make_synthetic.py",
+      "sha256": "fdc3c10e7ad75991f3e4e8c182c6de35f18834460b5dbeb07a634b164697dd85"
+    },
+    {
+      "path": "fm_vhgf/__init__.py",
+      "sha256": "e45ebd489e972b3c49af25b51b6d440f1b70a771b6a9eb04d66917cd3afe9230"
+    },
+    {
+      "path": "fm_vhgf/checkpoints.py",
+      "sha256": "1af22165caeb1077af69abe0b8b3da8e11d36ed3c12212bc004b14b429a449c2"
+    },
+    {
+      "path": "fm_vhgf/data.py",
+      "sha256": "86af863742bc35e7645cba91fce004eac0f352b6f6e84009c1bfcc3fb5aee693"
+    },
+    {
+      "path": "fm_vhgf/hypergraph.py",
+      "sha256": "00c7dc017c3bd4c0897573484fde9f9cf3ad33f9ead08b9140b42eb7df2ace0a"
+    },
+    {
+      "path": "fm_vhgf/metrics.py",
+      "sha256": "a473f0959f90ef441961cf19be02b0f873ef722a2312ae64e968c4dba8349733"
+    },
+    {
+      "path": "fm_vhgf/model.py",
+      "sha256": "83579f5e0cb04e443f28c3cdbcad27ce7fec84b70dbae220cce9725d1b326edf"
+    },
+    {
+      "path": "fm_vhgf/predict.py",
+      "sha256": "2b97ca08d6f226f557ae0e6a1231e596cb813ad892c4ae31ec8e47d594cc3368"
+    },
+    {
+      "path": "fm_vhgf/preprocess.py",
+      "sha256": "4069f73784c8efc1f28b97f9fcda2172d8b2947c56d1fb24c43121c75ec41ab6"
+    },
+    {
+      "path": "fm_vhgf/train.py",
+      "sha256": "b04859cf40b750894eb8058b47b75b2cbb7bd528f7bf95b248c5b1d923a892bd"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "80d3d726c3c3ced43ef5dd3ddaa9d46e16b670167526c41e88379b4438e0740f"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "1189b7e66868a80a030eec14e179e7b11aa8db145b6a1e3a01a549fb64606596"
+    },
+    {
+      "path": "tests/test_core.py",
+      "sha256": "6412e4a5c1fe1bf30f99a0872920efef7bb897d633b235fca7507c2b4ca21900"
+    },
+    {
+      "path": "tests/test_end_to_end.py",
+      "sha256": "79bdd61173d29f1d93854629de52ca1158a724c5347526b005b193f621006a34"
+    },
+    {
+      "path": "train_epe.py",
+      "sha256": "207c18ff6cb18925d6cd6b059a9a98d82cb0e827e31f3d8cd8339d6c953e77d9"
+    },
+    {
+      "path": "train_isup.py",
+      "sha256": "971312c1942acd31bad8276edf4f6af1da11bd51cab789ddb5bb83e077aa38a5"
+    }
+  ]
+}
