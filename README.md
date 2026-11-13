@@ -2,8 +2,6 @@
 
 Foundation-Model Transfer and Volumetric Hierarchical Hypergraph Fusion for PSMA PET/CT Prostate Cancer Risk Stratification.
 
-Target repository: [liufanxuan/FM_VHGF](https://github.com/liufanxuan/FM_VHGF).
-
 This implementation was adapted from the recovered project code and aligned with the final manuscript's Methods and training protocol. Its software checks pass; the manuscript's clinical performance has **not** been reproduced with this modified implementation.
 
 ## Method

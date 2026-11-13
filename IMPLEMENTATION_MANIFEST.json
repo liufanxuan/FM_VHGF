@@ -1,6 +1,5 @@
 {
   "status": "Manuscript-aligned modified implementation; original clinical results not reproduced",
-  "repository": "https://github.com/liufanxuan/FM_VHGF",
   "source_archive": "open_clip_main_code_20260728_051401.tar.gz",
   "source_archive_sha256": "3849e65292b53bc6e6a2c8fb01d8fa570c67893e8654840eece727ff9e6b338e",
   "validation": {
@@ -37,7 +36,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "000a02d36a5ca949a28f0cd9bf39c7d5a9417526810b33d70fc041aba1b23afc"
+      "sha256": "e6806c1fe99f9d735cc44df7ed9e6607e7334ea49597e30badb7913141e4a031"
     },
     {
       "path": "UPSTREAM_NOTICES.md",
@@ -57,7 +56,7 @@
     },
     {
       "path": "docs/IMPLEMENTATION_UPDATE_zh.md",
-      "sha256": "e92bac543b1da4a0651a4eca382a201531e61f898fc1d2aa815abb10c64ce4fe"
+      "sha256": "894debd1371b2464e0d29454ee633f49e2fb93856a62a764f3cf862c18efa35b"
     },
     {
       "path": "docs/MANUSCRIPT_ALIGNMENT.md",
