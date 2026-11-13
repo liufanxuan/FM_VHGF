@@ -1,5 +1,5 @@
 {
-  "status": "Manuscript-aligned modified implementation; original clinical results not reproduced",
+  "status": "Clinical results not yet reproduced",
   "source_archive": "open_clip_main_code_20260728_051401.tar.gz",
   "source_archive_sha256": "3849e65292b53bc6e6a2c8fb01d8fa570c67893e8654840eece727ff9e6b338e",
   "validation": {
@@ -36,11 +36,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "e6806c1fe99f9d735cc44df7ed9e6607e7334ea49597e30badb7913141e4a031"
+      "sha256": "ae4e16506fcf0d505bcd53ad45cb9d550a0f417eae8fe1924445972cf5a378af"
     },
     {
       "path": "UPSTREAM_NOTICES.md",
-      "sha256": "60701040343a507f75128ada3ab28bd21ebcd80b8b5c6224ae74bc8e268b35a4"
+      "sha256": "eb77f61a52ee3435a6b153c2b7e29b4556aef23aee29452bb547e5e73b1855c3"
     },
     {
       "path": "configs/epe.json",
@@ -56,15 +56,15 @@
     },
     {
       "path": "docs/IMPLEMENTATION_UPDATE_zh.md",
-      "sha256": "894debd1371b2464e0d29454ee633f49e2fb93856a62a764f3cf862c18efa35b"
+      "sha256": "95857aea282be67ae02d06430f1718fde99d2f8f05b9c298f1e8b499e7ee8803"
     },
     {
       "path": "docs/MANUSCRIPT_ALIGNMENT.md",
-      "sha256": "417cb2805beed72ca425d6164f0fefa9636997d4e91999fdd37f9228624da1c2"
+      "sha256": "967c9642c1bb393bb166fd6c800ec434e888cfc0ed582f8d9d06099807864512"
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "c055a5ee1a68ce4873e9cf9906f6b499b8182a8a514cc469ae42bd47b566a987"
+      "sha256": "f72cd4658d0c1d903a04f3ab2bfce5f85a2f58c4c551536633e28290ca7d3cf0"
     },
     {
       "path": "examples/make_synthetic.py",
@@ -108,7 +108,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "80d3d726c3c3ced43ef5dd3ddaa9d46e16b670167526c41e88379b4438e0740f"
+      "sha256": "30e55a7821f5cb44ebd52e6b4ce50dbc3eff6bdac8ac48933f792e7fcdf6b0b1"
     },
     {
       "path": "requirements.txt",
