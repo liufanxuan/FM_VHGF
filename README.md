@@ -1,97 +1,49 @@
 # FM-VHGF
 
-PyTorch implementation for PET/CT classification.
+PyTorch code for PSMA PET/CT classification.
 
-## Installation
+## Setup
 
-Create a Python environment and install the dependencies. For example, with CUDA 12.4:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
-python -m pip install -e .
-```
-
-For a different CUDA version or CPU, install the appropriate [PyTorch build](https://pytorch.org/get-started/previous-versions/) first.
-
-Download `open_clip_pytorch_model.bin` from [BiomedCLIP](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224) for encoder initialization.
-
-## Data preparation
-
-Patient data, fold assignments and trained checkpoints are not included.
-
-Each patient requires an HDF5 file containing paired `pet` and `ct` arrays. Both arrays must be aligned and use the same grid. A binary `label` can be stored in the HDF5 file or provided in the CSV manifest.
-
-To prepare a case from co-registered NIfTI images and a tumour mask:
+Install [PyTorch 2.4.1](https://pytorch.org/get-started/previous-versions/), then run:
 
 ```bash
-python -m fm_vhgf.preprocess \
-  --pet-suv /path/to/pet_suv.nii.gz \
-  --ct-hu /path/to/ct_hu.nii.gz \
-  --mask /path/to/tumour_mask.nii.gz \
-  --label 1 \
-  --output /path/to/data/patient_001.h5
+pip install -e .
 ```
 
-PET must be in SUV units and CT in Hounsfield units. The script resamples the images to 1 mm spacing and extracts a tumour-centred 96 × 96 × 96 crop. The input mask is used to determine the crop centre.
+Download `open_clip_pytorch_model.bin` from [BiomedCLIP](https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224).
 
-Create `train_0.csv` and `val_0.csv` through `train_4.csv` and `val_4.csv`. Use one patient per row:
+## Data
 
-```csv
-case_id,path,label
-patient_001,patient_001.h5,1
-patient_002,patient_002.h5,0
+Each patient needs an HDF5 file with aligned `pet` and `ct` volumes and a binary `label`. The label can instead be supplied in the CSV.
+
+To prepare tumour-centred patches from aligned NIfTI images, provide PET in SUV units, CT in HU and a tumour mask. The mask is used only to locate the crop:
+
+```bash
+python -m fm_vhgf.preprocess --pet-suv /path/to/pet.nii.gz --ct-hu /path/to/ct.nii.gz --mask /path/to/mask.nii.gz --output /path/to/case.h5
 ```
 
-For ISUP, label `1` denotes GG 3–5 and `0` denotes GG 1–2. For EPE, `1` denotes EPE-positive and `0` EPE-negative. The training script checks for patient overlap across splits.
+Provide five predefined splits as `train_0.csv` and `val_0.csv` through `train_4.csv` and `val_4.csv`, with columns `case_id,path,label`. Label `1` denotes GG 3–5 for ISUP or EPE-positive for EPE.
 
 ## Training
 
-Run five-fold training for ISUP:
-
 ```bash
-python train_isup.py \
-  --config configs/isup.json \
-  --data-root /path/to/data \
-  --split-dir /path/to/isup_folds \
-  --pretrained /path/to/open_clip_pytorch_model.bin \
-  --output outputs/isup
+python train_isup.py --config configs/isup.json --data-root /path/to/data --split-dir /path/to/isup_folds --pretrained /path/to/open_clip_pytorch_model.bin --output outputs/isup
 ```
 
-For EPE:
-
-```bash
-python train_epe.py \
-  --config configs/epe.json \
-  --data-root /path/to/data \
-  --split-dir /path/to/epe_folds \
-  --pretrained /path/to/open_clip_pytorch_model.bin \
-  --output outputs/epe
-```
-
-The scripts save the best checkpoint, validation predictions and metrics for each fold. Training settings are defined in `configs/isup.json` and `configs/epe.json`. Use a new output directory for each run.
+For EPE, use `train_epe.py`, `configs/epe.json` and the EPE splits. Each fold's checkpoint, predictions and metrics are saved in the output directory.
 
 ## Inference
 
-Prepare a CSV with `case_id` and `path` columns, then run:
-
 ```bash
-python -m fm_vhgf.predict \
-  --checkpoint outputs/isup/fold_0/best.pt \
-  --manifest /path/to/inference.csv \
-  --data-root /path/to/data \
-  --output outputs/predictions.csv
+python -m fm_vhgf.predict --checkpoint outputs/isup/fold_0/best.pt --manifest /path/to/inference.csv --data-root /path/to/data --output outputs/predictions.csv
 ```
 
-Add `--device cpu` for CPU inference. For other options, run `python train_isup.py --help` or `python -m fm_vhgf.predict --help`.
+The inference CSV requires `case_id` and `path` columns. Add `--device cpu` to run on a CPU.
 
-## Tests
+## Validation
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-**Validation:** The reported clinical results have not been reproduced with this implementation. Loading the full BiomedCLIP checkpoint has not yet been verified.
-
-See [third-party notices](UPSTREAM_NOTICES.md) and [validation details](docs/VALIDATION.md).
+The BiomedCLIP checkpoint and reported clinical results have not yet been verified with this implementation. See [third-party notices](UPSTREAM_NOTICES.md).
